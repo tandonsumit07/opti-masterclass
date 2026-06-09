@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "gen-types": "graphql-codegen -r dotenv/config --config ./codegen.yaml"
   },
   "dependencies": {
     "next": "16.2.7",
@@ -15,10 +16,15 @@
     "react-dom": "19.2.4"
   },
   "devDependencies": {
+    "@graphql-codegen/cli": "^7.1.2",
+    "@graphql-codegen/typescript": "^6.0.2",
+    "@graphql-codegen/typescript-generic-sdk": "^5.0.1",
+    "@graphql-codegen/typescript-operations": "^6.0.3",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "dotenv": "^17.4.2",
     "eslint": "^9",
     "eslint-config-next": "16.2.7",
     "prettier": "^3.8.3",

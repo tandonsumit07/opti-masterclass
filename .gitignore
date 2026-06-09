@@ -39,3 +39,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+
+# codegen
+codegen.yaml
+lib/optimizely/types/generated.ts
+
