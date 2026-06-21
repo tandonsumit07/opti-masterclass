@@ -1,4 +1,5 @@
 import { optimizely } from '@/lib/optimizely/fetch'
+import { getValidLocale } from '@/lib/utils/language'
 
 export default async function LocalizedHomePage({
   params,
@@ -7,7 +8,9 @@ export default async function LocalizedHomePage({
 }) {
   const { locale } = await params
 
-  const { data } = await optimizely.GetStartPage({ locales: [locale] })
+  const locales = getValidLocale(locale)
+
+  const { data } = await optimizely.GetStartPage({ locales: [locales] })
   return (
     <div>
       <h1>{data?.StartPage?.item?.title}</h1>;

@@ -1,4 +1,5 @@
 import { optimizely } from '@/lib/optimizely/fetch'
+import { getValidLocale } from '@/lib/utils/language'
 import { notFound } from 'next/navigation'
 
 export default async function LocaleCMSPage({
@@ -8,8 +9,10 @@ export default async function LocaleCMSPage({
 }) {
   const { locale, slug } = await params
 
+  const locales = getValidLocale(locale)
+
   const { data } = await optimizely.getPageByURL({
-    locales: [locale],
+    locales: [locales],
     slug: `/${slug}`,
   })
   if (!data?.CMSPage?.item) return notFound()
